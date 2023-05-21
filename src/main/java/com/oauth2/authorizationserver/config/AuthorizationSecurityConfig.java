@@ -65,7 +65,6 @@ public class AuthorizationSecurityConfig {
 
         return http.build();
 
-
     }
 
     @Bean
@@ -77,32 +76,6 @@ public class AuthorizationSecurityConfig {
         return http.build();
     }
 
-//    @Bean
-//    public UserDetailsService userDetailsService(){
-//      UserDetails userDetails = User
-//                .withUsername("user")
-//                .password("{noop}user")
-//                .authorities("ROLE_USER")
-//                .build();
-//        return new InMemoryUserDetailsManager(userDetails);
-//    }
-
-//    @Bean
-//    public RegisteredClientRepository registeredClientRepository(){
-//        RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-//                .clientId("client")
-//                .clientSecret(passwordEncoder.encode("secret"))
-//                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-//                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-//                .authorizationGrantType((AuthorizationGrantType.CLIENT_CREDENTIALS))
-//                .redirectUri("https://oauthdebugger.com/debug")
-//                .scope(OidcScopes.OPENID)
-//                .clientSettings(clientSettings())
-//                .build();
-//
-//        return   new InMemoryRegisteredClientRepository(registeredClient);
-//
-//    }
 
     @Bean
     public OAuth2TokenCustomizer<JwtEncodingContext> tokenCustomizer(){
@@ -124,16 +97,11 @@ public class AuthorizationSecurityConfig {
     }
 
 
-/*    @Bean
-    public  ClientSettings clientSettings(){
-        return  ClientSettings.builder().requireProofKey(true).build();
-    }*/
-
 
 
     @Bean
     public AuthorizationServerSettings authorizationServerSettings(){
-        return  AuthorizationServerSettings.builder().issuer("http://localhost:8090").build();
+        return  AuthorizationServerSettings.builder().issuer("http://localhost:8081").build();
     }
 
 
